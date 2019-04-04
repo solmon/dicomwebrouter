@@ -1,0 +1,91 @@
+<header class="app-header navbar">
+  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler d-md-down-none" type="button" appSidebarToggler>&#9776;</button>
+  <!--ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">Dashboard</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" href="#">In-Coming</a>
+    </li>    
+  </ul-->
+  <ul class="nav navbar-nav ml-auto">
+    <!--li class="nav-item d-md-down-none">
+      <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
+    </li-->
+    <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
+      <a href class="nav-link dropdown-toggle" dropdownToggle (click)="false">
+        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+        <span class="d-md-down-none">admin</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <div class="dropdown-header text-center"><strong>Account</strong></div>       
+        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>    
+  </ul>
+</header>
+
+<div class="app-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/ptabs']"><i class="icon-speedometer"></i> Dashboard </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/monitor']"><i class="icon-speedometer"></i> Monitor </a>
+        </li>
+        <li class="divider"></li>
+        <li class="nav-title">
+          Server Configuration
+        </li>
+        <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-puzzle"></i> Settings</a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/masterdata/settings']"><i class="icon-puzzle"></i> Basic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/masterdata/aetitles']"><i class="icon-puzzle"></i> AE Titles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/masterdata/linkclients']"><i class="icon-puzzle"></i> Link Clients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/masterdata/dicomsend']"><i class="icon-puzzle"></i> Dicom Send</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/masterdata/routetableSettings']"><i class="icon-puzzle"></i> Routing</a>
+            </li>            
+          </ul>
+        </li>        
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <!--ol class="breadcrumb">
+      <app-breadcrumbs></app-breadcrumbs-->
+      <!-- Breadcrumb Menu-->
+      <!--li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <a class="btn" href="#"><i class="icon-speech"></i></a>
+          <a class="btn" [routerLink]="['/dashboard']"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+          <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
+        </div>
+      </li>
+    </ol-->
+    <div class="container-fluid" style="padding: 0px;">
+      <router-outlet></router-outlet>
+    </div><!-- /.conainer-fluid -->
+  </main>
+</div>
+
+<footer class="app-footer">
+  <a href="#">CorePACS</a> &copy; 2017 dicomutilities.
+  <span class="float-right">Powered by CorePACS-DicomUtilities</span>
+</footer>

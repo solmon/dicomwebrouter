@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="card">              
+              <div class="card-body">               
+                <p-dataTable [value]="entites" selectionMode="single" [(selection)]="selectedEntity" (onRowSelect)="onRowSelect($event)" [paginator]="false" rows="15" [responsive]="true">
+                    <p-header>Basic Settings</p-header>
+                    <p-column field="name" header="Setting Key" [sortable]="true"></p-column>
+                    <p-column field="value" header="Value" [sortable]="true"></p-column>                                        
+                </p-dataTable>                
+                <p-dialog header="Basic Settings" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false">
+                    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="entity">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="remotehost">Name</label></div>
+                            <div class="ui-grid-col-8"><label for="remotehost">{{entity.name}}</label></div>
+                        </div>   
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="active">Value</label></div>
+                            <div class="ui-grid-col-8"><input pInputText id="active" [(ngModel)]="entity.value" /></div>
+                        </div>                       
+                    </div>
+                    <p-footer>
+                        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                            <button type="button" pButton icon="fa-check" (click)="save()" label="Update"></button>
+                        </div>
+                    </p-footer>
+                </p-dialog>
+              </div>  
+            </div>
+        </div>
+    </div>
+</div>

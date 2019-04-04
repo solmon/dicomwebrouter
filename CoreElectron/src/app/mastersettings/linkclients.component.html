@@ -1,0 +1,34 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="card">              
+              <div class="card-body">               
+                <p-dataTable [value]="entites" selectionMode="single" [(selection)]="selectedEntity" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+                    <p-header>Link Clients Management</p-header>
+                    <p-column field="urlEndPoint" header="Client End Point" [sortable]="true"></p-column>
+                    <p-column field="isActive" header="Active" [sortable]="true"></p-column>                    
+                    <p-footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add Link Client"></button></div></p-footer>
+                </p-dataTable>                
+                <p-dialog header="Link Client Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false">
+                    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="entity">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="aetitle">End Point</label></div>
+                            <div class="ui-grid-col-8"><input pInputText id="aetitle" [(ngModel)]="entity.urlEndPoint" /></div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="port">isActive</label></div>
+                            <div class="ui-grid-col-8"><p-checkbox [(ngModel)]="entity.isActive" binary="true"></p-checkbox></div>
+                        </div>
+                    </div>
+                    <p-footer>
+                        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                            <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                            <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+                        </div>
+                    </p-footer>
+                </p-dialog>
+              </div>  
+            </div>
+        </div>
+    </div>
+</div>

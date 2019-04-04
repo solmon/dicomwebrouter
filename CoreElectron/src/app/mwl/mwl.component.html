@@ -1,0 +1,49 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="card">              
+                <div class="card-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Caller AE</th>
+                        <th>Date Recieved</th>
+                        <th>Patient Name</th>
+                        <th>Remote I.P</th>
+                        <th>Priority</th>
+                        <th>Acquisition Date</th>
+                        <th>Study Description</th>
+                        <th>Series/Intance</th>
+                        <th>InComplete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let study of studies">
+                        <tr>
+                            <td>{{study.calledAE}}</td>
+                            <td>{{study.recievedTime}}</td>
+                            <td>{{study.patientName}}</td>
+                            <td>{{study.remoteHostIP}}</td>
+                            <td>{{study.priority}}</td>
+                            <td>{{study.acquisitionDateTime}}</td>
+                            <td>{{study.studyDescription}}</td>
+                            <td>{{study.seriesCount}}\{{study.totalImages}}</td>
+                            <td>{{study.isComplete}}</td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                  <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                  </ul>
+                </div>
+        </div>
+    </div>
+</div>

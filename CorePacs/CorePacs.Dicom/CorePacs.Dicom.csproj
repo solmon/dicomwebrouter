@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Parser\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="fo-dicom.NetCore" Version="3.0.2" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="4.3.0" />
+    <PackageReference Include="runtime.native.System" Version="4.3.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CorePacs.DataAccess\CorePacs.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
